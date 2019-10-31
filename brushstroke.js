@@ -3,15 +3,15 @@ function createBrushstroke (pageX, pageY, color) {
     divElem.className = 'brushstroke';
     divElem.style.left = pageX + 'px';
     divElem.style.top = pageY + 'px';
-	divElem.style.backgroundColor = color;
+    divElem.style.backgroundColor = color;
     document.documentElement.appendChild(divElem);
     divElem.addEventListener('webkitAnimationEnd', onAnimationEnd);
-	divElem.addEventListener('animationend', onAnimationEnd);
+    divElem.addEventListener('animationend', onAnimationEnd);
 }
                              
 function onAnimationEnd (event) {
     var divElem = event.target;
     divElem.removeEventListener('webkitAnimationEnd', onAnimationEnd);
-	divElem.removeEventListener('animationend', onAnimationEnd);
+    divElem.removeEventListener('animationend', onAnimationEnd);
     divElem.parentNode.removeChild(divElem);
 }
